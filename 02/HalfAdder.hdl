@@ -1,0 +1,27 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/2/HalfAdder.hdl
+/**
+ * Computes the sum of two bits.
+ */
+CHIP HalfAdder {
+    IN a, b;    // 1-bit inputs
+    OUT sum,    // Right bit of a + b 
+        carry;  // Left bit of a + b
+
+    PARTS:
+    //// Replace this comment with your code.
+    // if a or b is 1
+    Or(a=a,b=b,out=sumtrue);
+    // if a and b is 1 carry shold go up
+    And(a=a,b=b,out=carytrue);
+    // when a/b is 1 and carytrue is wrong
+    Xor(a=sumtrue,b=carytrue,out=isfinetoincrement);
+    // if cary is true then there should be no sum
+    And(b=carytrue,out=nosum);
+    // when a or b increment or when a and b + carrytrue
+    And(a=sumtrue,b=isfinetoincrement,out=sum);
+    // if the sum is true and the carry is true we icrement carry
+    And(a=sumtrue,b=carytrue,out=carry);
+}
