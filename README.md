@@ -42,6 +42,8 @@ The complete Nand to Tetris experience spans 12 projects. Each project consists 
 - Assembly Language
 - Jack (high-level programming language)
 - HACK Assembly
+- Python
+- C
 
 ## Getting Started
 
