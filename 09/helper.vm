@@ -1,0 +1,77 @@
+function helper.getCharAt 4
+    push constant 0
+    pop local 0
+label L0
+    push local 3
+    not
+    not
+    if-goto L1
+    push argument 0
+    push local 0
+    call String.charAt 2
+    push constant 0
+    eq
+    not
+    if-goto L3
+    push constant 1
+    neg
+    pop local 3
+    goto L2
+label L3
+label L2
+    push local 0
+    push constant 1
+    add
+    pop local 0
+    goto L0
+label L1
+    push argument 1
+    push constant 0
+    lt
+    not
+    if-goto L5
+    push constant 0
+    return
+    goto L4
+label L5
+label L4
+    push argument 1
+    push local 0
+    gt
+    not
+    if-goto L7
+    push constant 0
+    return
+    goto L6
+label L7
+label L6
+    push argument 1
+    push local 0
+    eq
+    not
+    if-goto L9
+    push constant 0
+    return
+    goto L8
+label L9
+label L8
+    push constant 0
+    pop local 1
+label L10
+    push local 1
+    push argument 1
+    lt
+    not
+    if-goto L11
+    push local 1
+    push constant 1
+    add
+    pop local 1
+    goto L10
+label L11
+    push argument 0
+    push argument 1
+    call String.charAt 2
+    pop local 2
+    push local 2
+    return

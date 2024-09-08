@@ -1,0 +1,236 @@
+class Welcomemessage {
+    function void drawWelcomeMessage() {
+    var int x_start;
+    var int y_start;
+    var int width;
+    var int height;
+    var int text_x;
+    var int text_y;
+
+        // Clear the screen first
+        do Screen.clearScreen();
+        
+        // Define positions
+        let x_start = 50;  // X coordinate for the start of the border
+        let y_start = 30;  // Y coordinate for the start of the border
+        let width = 300;   // Width of the border
+        let height = 60;   // Height of the border
+        let text_x = x_start + 10;  // X coordinate for the text
+        let text_y = y_start + 20;  // Y coordinate for the text
+
+        // Draw top border
+        do Screen.drawLine(x_start, y_start, x_start + width, y_start);
+        // Screen.Draw bottom border
+        do Screen.drawLine(x_start, y_start + height, x_start + width, y_start + height);
+        // Screen.Draw left border
+        do Screen.drawLine(x_start, y_start, x_start, y_start + height);
+        // Screen.Draw right border
+        do Screen.drawLine(x_start + width, y_start, x_start + width, y_start + height);
+
+        // Draw text background
+        do Screen.drawRectangle(x_start, y_start + 10, x_start + width, y_start + 50);
+
+        // Draw "Welcome to Guess the Word!" text
+        do Welcomemessage.drawText(text_x, text_y, "Welcome to Guess the Word!");
+        return ;
+    }
+
+    // Helper function to draw simple text by plotting pixels
+    function void drawText(int x, int y, String text) {
+    var int char_width;
+    var int char_height;
+    var int offset_x;
+    var int offset_y;
+    var int i;
+    var char c;
+    let char_width = 5;
+    let char_height = 7;
+    let offset_x = x;
+    let offset_y = y;
+    let i = 0;
+        // Example: Drawing specific characters
+        while (i < constructors.lenofword(text)) {
+            let c = helper.getCharAt(text, i);
+            
+                if (c = "W") {
+                            do Welcomemessage.drawCharacterW(offset_x, offset_y);
+                        } 
+
+                if (c = "e") {
+                    do Welcomemessage.drawCharacterE(offset_x, offset_y);
+                } 
+
+                if (c = "l") {
+                    do Welcomemessage.drawCharacterL(offset_x, offset_y);
+                } 
+
+                if (c = "c") {
+                    do Welcomemessage.drawCharacterC(offset_x, offset_y);
+                } 
+
+                if (c = "o") {
+                    do Welcomemessage.drawCharacterO(offset_x, offset_y);
+                } 
+
+                if (c = "m") {
+                    do Welcomemessage.drawCharacterM(offset_x, offset_y);
+                } 
+
+                if (c = "t") {
+                    do Welcomemessage.drawCharacterT(offset_x, offset_y);
+                } 
+
+                if (c = "G") {
+                    do Welcomemessage.drawCharacterG(offset_x, offset_y);
+                } 
+
+                if (c = "u") {
+                    do Welcomemessage.drawCharacterU(offset_x, offset_y);
+                } 
+
+                if (c = "s") {
+                    do Welcomemessage.drawCharacterS(offset_x, offset_y);
+                } 
+
+                if (c = "a") {
+                    do Welcomemessage.drawCharacterA(offset_x, offset_y);
+                } 
+
+                if (c = "r") {
+                    do Welcomemessage.drawCharacterR(offset_x, offset_y);
+                } 
+
+                if (c = "d") {
+                    do Welcomemessage.drawCharacterD(offset_x, offset_y);
+                } 
+ 
+            
+            // Move to the next character position
+            let offset_x = offset_x + char_width;
+            let i = i + 1;
+        }
+        return ;
+    }
+
+    // Drawing functions for each character
+    function void drawCharacterW(int x, int y) {
+        // Example for 'W'
+        do Screen.drawLine(x, y, x, y + 6);    // Vertical line on left
+        do Screen.drawLine(x + 1, y, x + 1, y + 6);  // Vertical line
+        do Screen.drawLine(x + 2, y, x + 2, y + 6);  // Vertical line
+        do Screen.drawLine(x + 3, y, x + 3, y + 6);  // Vertical line
+        do Screen.drawLine(x + 4, y, x + 4, y + 6);  // Vertical line on right
+        return ;
+    }
+
+    function void drawCharacterE(int x, int y) {
+        // Example for 'E'
+        do Screen.drawLine(x, y, x, y + 6);    // Vertical line on left
+        do Screen.drawLine(x, y, x + 4, y);    // Top horizontal line
+        do Screen.drawLine(x, y + 3, x + 3, y + 3);  // Middle horizontal line
+        do Screen.drawLine(x, y + 6, x + 4, y + 6);  // Bottom horizontal line
+        return ;
+    }
+
+    function void drawCharacterL(int x, int y) {
+        // Example for 'L'
+        do Screen.drawLine(x, y, x, y + 6);    // Vertical line on left
+        do Screen.drawLine(x, y + 6, x + 4, y + 6);  // Bottom horizontal line
+        return ;
+    }
+
+    function void drawCharacterC(int x, int y) {
+        // Example for 'C'
+        do Screen.drawLine(x, y, x, y + 6);    // Vertical line on left
+        do Screen.drawLine(x, y, x + 4, y);    // Top horizontal line
+        do Screen.drawLine(x, y + 6, x + 4, y + 6);  // Bottom horizontal line
+        return ;
+    }
+    function void drawCharacterO(int x, int y) {
+        // Example for 'O'
+        do Screen.drawLine(x + 1, y, x + 1, y + 6);    // Left vertical line
+        do Screen.drawLine(x + 4, y, x + 4, y + 6);    // Right vertical line
+        do Screen.drawLine(x, y, x + 4, y);            // Top horizontal line
+        do Screen.drawLine(x, y + 6, x + 4, y + 6);    // Bottom horizontal line
+        do Screen.drawLine(x, y, x + 1, y + 1);        // Top-left diagonal line
+        do Screen.drawLine(x + 4, y, x + 3, y + 1);    // Top-right diagonal line
+        do Screen.drawLine(x, y + 6, x + 1, y + 5);    // Bottom-left diagonal line
+        do Screen.drawLine(x + 4, y + 6, x + 3, y + 5); // Bottom-right diagonal line
+        return ;
+    }
+
+    function void drawCharacterM(int x, int y) {
+        // Example for 'M'
+        do Screen.drawLine(x, y, x, y + 6);            // Left vertical line
+        do Screen.drawLine(x + 1, y, x + 1, y + 6);    // Inner vertical line
+        do Screen.drawLine(x + 2, y, x + 2, y + 3);    // Middle vertical line up to middle
+        do Screen.drawLine(x + 2, y + 3, x + 3, y + 6); // Diagonal line from middle to right
+        do Screen.drawLine(x + 3, y, x + 3, y + 6);    // Right vertical line
+        do Screen.drawLine(x + 4, y, x + 4, y + 6);    // Right outer vertical line
+        return ;
+    }
+
+    function void drawCharacterT(int x, int y) {
+        // Example for 'T'
+        do Screen.drawLine(x, y, x + 4, y);            // Top horizontal line
+        do Screen.drawLine(x + 2, y, x + 2, y + 6);    // Vertical line in the center
+        return ;
+    }
+
+    function void drawCharacterG(int x, int y) {
+        // Example for 'G'
+        do Screen.drawLine(x, y, x, y + 6);            // Left vertical line
+        do Screen.drawLine(x, y, x + 4, y);            // Top horizontal line
+        do Screen.drawLine(x, y + 6, x + 4, y + 6);    // Bottom horizontal line
+        do Screen.drawLine(x + 4, y, x + 4, y + 4);    // Right vertical line (cut short for G shape)
+        do Screen.drawLine(x + 2, y + 3, x + 4, y + 3); // Middle horizontal line cut
+        return ;
+    }
+
+    function void drawCharacterU(int x, int y) {
+        // Example for 'U'
+        do Screen.drawLine(x, y, x, y + 6);            // Left vertical line
+        do Screen.drawLine(x + 4, y, x + 4, y + 6);    // Right vertical line
+        do Screen.drawLine(x, y + 6, x + 4, y + 6);    // Bottom horizontal line
+        return ;
+    }
+
+    function void drawCharacterS(int x, int y) {
+        // Example for 'S'
+        do Screen.drawLine(x, y, x + 4, y);            // Top horizontal line
+        do Screen.drawLine(x, y + 3, x + 4, y + 3);    // Middle horizontal line
+        do Screen.drawLine(x, y + 6, x + 4, y + 6);    // Bottom horizontal line
+        do Screen.drawLine(x, y, x, y + 6);            // Left vertical line
+        return ;
+    }
+
+    function void drawCharacterA(int x, int y) {
+        // Example for 'A'
+        do Screen.drawLine(x, y + 6, x + 4, y + 6);    // Bottom horizontal line
+        do Screen.drawLine(x, y, x + 2, y + 3);        // Left diagonal line
+        do Screen.drawLine(x + 2, y + 3, x + 4, y);    // Right diagonal line
+        do Screen.drawLine(x + 1, y + 3, x + 3, y + 3); // Middle horizontal line
+        return ;
+    }
+
+    function void drawCharacterR(int x, int y) {
+        // Example for 'R'
+        do Screen.drawLine(x, y, x, y + 6);            // Left vertical line
+        do Screen.drawLine(x, y, x + 4, y);            // Top horizontal line
+        do Screen.drawLine(x, y + 3, x + 4, y + 3);    // Middle horizontal line
+        do Screen.drawLine(x + 4, y, x + 4, y + 3);    // Right vertical line up to middle
+        do Screen.drawLine(x + 2, y + 3, x + 4, y + 6); // Diagonal line from middle to bottom
+        return ;
+    }
+
+    function void drawCharacterD(int x, int y) {
+        // Example for 'D'
+        do Screen.drawLine(x, y, x, y + 6);            // Left vertical line
+        do Screen.drawLine(x, y, x + 4, y);            // Top horizontal line
+        do Screen.drawLine(x, y + 6, x + 4, y + 6);    // Bottom horizontal line
+        do Screen.drawLine(x + 4, y, x + 4, y + 6);    // Right vertical line
+        do Screen.drawLine(x + 1, y + 6, x + 4, y + 3); // Diagonal line from bottom to middle
+        return ;
+    }
+
+}

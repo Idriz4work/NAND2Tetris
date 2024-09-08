@@ -1,0 +1,32 @@
+// Random.jack
+//class Random {
+//    field int seed;
+//
+//    // Constructor: initializes the seed
+//    function Random new(int initialSeed) {
+//        let this = seed = initialSeed;
+//        return this; // return statement needs a semicolon
+//    }
+//
+//    // Generates a random number between 0 and 12
+//    function int random() {
+//        let this = seed = ((this = seed * 1664525) + 1013904223) ;
+//        return this = seed % 13; // Returns a number between 0 and 12
+//    }
+//
+//    // Sets a new seed value
+//    function void setSeed(int newSeed) {
+//        let this.seed = newSeed;
+//        return;
+//    }
+//}
+
+//// WORD GUESS APP
+class Main {
+    function void main() {
+        do Welcomemessage.drawWelcomeMessage();
+        do constructors.startGame();
+        return;
+    }
+}
+

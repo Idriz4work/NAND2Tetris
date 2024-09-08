@@ -1,0 +1,41 @@
+class helper {
+    // Helper function to get a character at a specific index
+    function char getCharAt(String String, int index) {
+        var int length;
+        var int i;
+        var char result;
+        var int isend;
+
+        // Initialize length of string
+        let length = 0;
+        
+        // Calculate the length of the string
+        while (~isend) {
+            if (String.charAt(length) = 0) { // Assuming 0 is the end of string character
+                let isend = true;
+            }
+            let length = length + 1;
+        }
+
+        // Check if the index is within bounds
+        if (index < 0) {
+            return 0; // Or some other error indicator
+        }
+
+        if (index > length) {
+            return 0; // Or some other error indicator
+        }
+        if (index = length) {
+            return 0; // Or some other error indicator
+        }
+
+        // Retrieve the character at the specified index
+        let i = 0;
+        while (i < index) {
+            let i = i + 1;
+        }
+
+        let result = String.charAt(index);
+        return result;
+    }
+}

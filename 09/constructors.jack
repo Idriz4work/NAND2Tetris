@@ -1,0 +1,135 @@
+class constructors {
+    field String word;  // field to store the word
+    
+    /** Constructs an object with the given word. */
+    constructor constructors new(String wordd) {
+        let word = wordd;  // Initialize the word with the passed argument
+        return this;  // Return reference to the new object
+    }
+    
+    /** Method to start a new game */
+    function void startGame() {
+        var int attempts;
+        var int wordlen;
+        var boolean isMatch;
+        var Array words;
+        var String word;
+        var String value;
+        var String guess;
+        var String charAsString;
+        var int index;
+        var int i;
+        var boolean enterPressed;
+
+        // Initialize the word list
+        let words = Array.new(12);
+        let words[0] = "elephant";
+        let words[1] = "dog";
+        let words[2] = "cat";
+        let words[3] = "zebra";
+        let words[4] = "aviye";
+        let words[5] = "recep";
+        let words[6] = "bigtree";
+        let words[7] = "applepen";
+        let words[8] = "pineapplepen";
+        let words[9] = "penpineappleapplepen";
+        let words[10] = "excellent";
+        let words[11] = "fine";
+
+        // Set the initial conditions
+        let attempts = 3;
+        let word = words[7];  // Use word at index 7, "applepen"
+        let wordlen = constructors.lenofword(word); // Calculate the length of the word in this instance
+
+        let guess = "";  // Initialize the guess as an empty string
+
+        // Game loop
+        while (attempts > 0) {
+            do Output.printString("Enter word: (Press enter if finished)");
+
+            let enterPressed = false;
+            let i = 0;
+
+            // Capture user input until Enter is pressed
+            while (~enterPressed) {
+                let value = Keyboard.readChar();  // Read a character from the keyboard
+                if (value = 13) {  // Check if Enter key (ASCII 13) is pressed
+                    let enterPressed = true;  // Set flag to exit the loop
+                } else {
+                    // Append the character to the guess
+                    let charAsString = "" + value;
+                    let guess = guess + charAsString;
+                    let i = i + 1;
+                }
+            }
+
+            // Compare the user's guess with the correct word
+            let isMatch = constructors.compareStrings(guess, word);  // Compare input with the stored word
+            if (isMatch) {
+                do Output.printString("YOU WON! CONGRATULATIONS\n");
+                return;  // Exit the function
+            } else {
+                do Output.printString("Try again.\n");
+                let attempts = attempts - 1;
+                let guess = "";  // Reset the guess for the next attempt
+            }
+        }
+
+        // If all attempts are used up, print the losing message
+        do Output.printString("Sorry, you lost. The word was: ");
+        do Output.printString(word);
+        do Output.printString("\n");
+        return;
+    }
+    
+    /** Function to calculate the length of the word */
+    function int lenofword(String word) {
+        var int i;
+        var int length;
+        var char c;
+
+        let i = 0;
+        let length = 0;
+
+        // Loop through each character until you hit the end of the string
+        while (true) {
+            let c = word.charAt(i);  // Use String's built-in charAt method
+            if (~(c > 0)) {  // Check if we've reached the end of the string
+                return length;
+            }
+            let length = length + 1;
+            let i = i + 1;
+        }
+        return length;
+    }
+
+    /** Function to compare two strings */
+    function boolean compareStrings(String s1, String s2) {
+        var int i;
+        var boolean result;
+        var int len1;
+        var int len2;
+
+        let i = 0;
+        let result = true;
+        let len1 = constructors.lenofword(s1);
+        let len2 = constructors.lenofword(s2);
+
+        // Compare lengths without using '=='
+        if (~(len1 > len2) & ~(len2 > len1)) {  // Ensure len1 equals len2
+            while (i < len1) {
+                // Compare each character without using '=='
+                if (~(s1.charAt(i) > s2.charAt(i)) & ~(s2.charAt(i) > s1.charAt(i))) {  // Use String's built-in charAt method
+                    let i = i + 1;
+                } else {
+                    let result = false;
+                    return result;
+                }
+            }
+        } else {
+            let result = false;
+        }
+
+        return result;
+    }
+}
