@@ -1,2 +1,0 @@
-inputfile = None
-outputfile = None
