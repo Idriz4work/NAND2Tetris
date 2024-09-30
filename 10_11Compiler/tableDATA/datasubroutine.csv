@@ -1,0 +1,32 @@
+NAME,TYPE,KIND,NUMBER
+this,Point,argument,0
+void,local,var,2
+(,local,var,3
+{,local,var,4
+Array,local,var,5
+;,local,var,6
+int,local,var,7
+",",local,var,8
+length,local,var,9
+Keyboard,local,var,10
+readInt,local,var,11
+"""HOW MANY NUMBERS? """,local,var,12
+a,local,var,13
+new,local,var,14
+i,local,var,15
+0,local,var,16
+while,local,var,17
+=,local,var,18
+.,local,var,19
+),local,var,20
+let,local,var,21
++,local,var,22
+sum,local,var,23
+1,local,var,24
+},local,var,25
+Output,local,var,26
+printString,local,var,27
+"""THE AVERAGE IS: """,local,var,28
+printInt,local,var,29
+println,local,var,30
+return,local,var,31

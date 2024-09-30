@@ -1,5 +1,4 @@
 import os
-import CodeGeneration.VMwriter as VM
 import logging
 import LexicalAnalysis.Tokenizer as Tokenizer
 import CodeGeneration.config as config
@@ -43,13 +42,12 @@ def process_file(file_path):
             if line:
                 validlines.append(line)
 
-        # Code Generation
-        VM.validator(validlines,file_path)
         # Syntax Analysis
-        Tokenizer.Tokenizer(validlines, file_path)
+        Tokenizer.Tokenizer(validlines=validlines, filepath=file_path)
 
     except Exception as e:
-        logging.error(f"Error processing file ")
+        logging.error(f"Error processing file {e} ")
+    
 
 def process_folder(folder_path):
     logging.info(f"Processing folder: {folder_path}")

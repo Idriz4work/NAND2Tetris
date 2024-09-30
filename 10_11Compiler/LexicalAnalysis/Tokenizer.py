@@ -1,3 +1,4 @@
+import CodeGeneration.VMwriter as VM
 import os
 import CodeGeneration.config as config
 import logging
@@ -77,6 +78,8 @@ def Tokenizer(validlines, filepath):
                 # If no match is found, move to the next character
                 logging.warning(f"Unrecognized character in line: [{char}] ({i})")
                 i += 1
+    # Code Generation
+    VM.VMwriter(valid_lines=tokens,filepath=output_path)
 
     CompilationEngine.startParsing(output_path=output_path, tokens=tokens, filename=filename)
     logging.info(f"Processed file: {filename}")
