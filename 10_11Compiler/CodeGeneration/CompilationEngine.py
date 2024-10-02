@@ -9,8 +9,9 @@ analysetable = jg.analyser_table
 logging.basicConfig(level=logging.INFO, format=' - %(levelname)s - %(message)s -- [%(filename)s:%(lineno)d]')
 
 class CompilationEngine:
-    def __init__(self, output_path, filename):
+    def __init__(self, output_path, filename,values):
         self.filename = filename
+        self.values = values
         self.output_path = output_path
         self.class_table = self.load_csv('tableDATA/dataclass.csv')
         self.subroutine_table = self.load_csv('tableDATA/datasubroutine.csv')

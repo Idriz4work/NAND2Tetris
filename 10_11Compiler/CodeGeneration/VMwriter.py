@@ -79,7 +79,7 @@ def VMwriter(valid_lines, filepath):
                 if not class_table.getValues(class_name):
                     logging.info("class table add value")
                     class_table.addValues(name=class_name, kind="class", typee="class")
-                    cp.CompilationEngine.compile(self=cp.CompilationEngine(output_path=output_path,filename=filename),typename=class_name,values=valid_lines)
+                    cp.CompilationEngine.compile(self=cp.CompilationEngine(output_path=output_path,filename=filename,values=valid_lines),typename=class_name,values=valid_lines)
                 i += 1  # Skip the class name token after processing
 
             # Handle method, function, or constructor scope
@@ -88,7 +88,7 @@ def VMwriter(valid_lines, filepath):
                 if not subroutine_table.getValues(subroutine_name):
                     logging.info("subroutine table add value")
                     subroutine_table.addValues(name=subroutine_name, kind="local", typee="var")
-                    cp.CompilationEngine.compile(self=cp.CompilationEngine(output_path=output_path,filename=filename),typename=subroutine_name,values=valid_lines)
+                    cp.CompilationEngine.compile(self=cp.CompilationEngine(output_path=output_path,filename=filename,values=valid_lines),typename=subroutine_name,values=valid_lines)
                 i += 1  # Skip the subroutine name token after processing
 
             i += 1  # Increment index after each token is processed

@@ -1,31 +1,86 @@
 function Main.Main 2
-push var 2
-push var 3
-push var 4
-push var 5
-push var 6
-push var 7
-push var 8
-push var 9
-push var 10
-push var 11
-push var 12
-push var 13
-push var 14
-push var 15
-push var 16
-push var 17
-push var 18
-push var 19
-push var 20
-push var 21
-push var 22
-push var 23
-push var 24
-push var 25
-push var 26
-push var 27
-push var 28
-push var 29
-push var 30
-push var 31
+push None None
+pop var 9
+push None None
+pop var 13
+push constant 0
+pop var 15
+label WHILE_EXP1
+push None None
+push None None
+lt
+not
+if-goto WHILE_END1
+push None None
+pop var 13
+push None None
+push constant 1
+add
+pop var 15
+goto WHILE_EXP1
+label WHILE_END1
+push constant 0
+pop var 15
+push constant 0
+pop var 23
+label WHILE_EXP2
+push None None
+push None None
+lt
+not
+if-goto WHILE_END2
+push None None
+push None None
+add
+pop var 23
+push None None
+push constant 1
+add
+pop var 15
+goto WHILE_EXP2
+label WHILE_END2
+push constant 16
+call String.new 1
+push constant 84
+call String.appendChar 2
+push constant 72
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 65
+call String.appendChar 2
+push constant 86
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 82
+call String.appendChar 2
+push constant 65
+call String.appendChar 2
+push constant 71
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 73
+call String.appendChar 2
+push constant 83
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push None None
+push None None
+call Math.divide 2
+call Output.printInt 1
+pop temp 0
+call Output.println 0
+pop temp 0
+push constant 0
+return
