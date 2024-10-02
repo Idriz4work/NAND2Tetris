@@ -1,3 +1,31 @@
 function Main.Main 2
-label LOOP1
-
+push var 2
+push var 3
+push var 4
+push var 5
+push var 6
+push var 7
+push var 8
+push var 9
+push var 10
+push var 11
+push var 12
+push var 13
+push var 14
+push var 15
+push var 16
+push var 17
+push var 18
+push var 19
+push var 20
+push var 21
+push var 22
+push var 23
+push var 24
+push var 25
+push var 26
+push var 27
+push var 28
+push var 29
+push var 30
+push var 31

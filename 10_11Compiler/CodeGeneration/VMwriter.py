@@ -43,31 +43,6 @@ def checkTYPE(lines, index):
     else:
         return "no valid Type"
 
-# # Validator function
-# def validator(lines, filepath):
-#     logging.info("START VALIDATING")
-#     valid_lines = [] 
-#     for line in lines:
-#         line = line.strip()
-#         if not line:
-#             continue
-#         # Tokenize the line into individual tokens
-#         tokens = re.findall(r'\b\w+\b|\S', line)
-#         i = 0
-#         while i < len(tokens):
-#             token = tokens[i]
-#             if token in analyse_table.allSymbols:
-#                 valid_lines.append(token)
-#             elif (is_valid_identifier(token) or
-#                   is_integer_constant(token) or
-#                   is_string_constant(token) or
-#                   token in ["var", "int", "string", "char", "Array", "let", "field", "static", "constructor", "class", "method"] or
-#                   token in analyse_table.Operators):
-#                 valid_lines.append(token)            
-#             i += 1
-#     # Pass valid lines to VMwriter for further processing
-#     VMwriter(valid_lines=valid_lines, filepath=filepath)
-
 # VMWriter function
 def VMwriter(valid_lines, filepath):
     logging.critical("STARTING VM WRITER")
@@ -89,7 +64,6 @@ def VMwriter(valid_lines, filepath):
     
     output_path = os.path.join(dest, filename)
     try:
-
         while i < len(valid_lines):
             token = valid_lines[i]
             
@@ -105,7 +79,7 @@ def VMwriter(valid_lines, filepath):
                 if not class_table.getValues(class_name):
                     logging.info("class table add value")
                     class_table.addValues(name=class_name, kind="class", typee="class")
-                    cp.CompilationEngine.is_identifierCLASS(class_name)
+                    cp.CompilationEngine.compile(self=cp.CompilationEngine(output_path=output_path,filename=filename),typename=class_name,values=valid_lines)
                 i += 1  # Skip the class name token after processing
 
             # Handle method, function, or constructor scope
@@ -114,13 +88,11 @@ def VMwriter(valid_lines, filepath):
                 if not subroutine_table.getValues(subroutine_name):
                     logging.info("subroutine table add value")
                     subroutine_table.addValues(name=subroutine_name, kind="local", typee="var")
+                    cp.CompilationEngine.compile(self=cp.CompilationEngine(output_path=output_path,filename=filename),typename=subroutine_name,values=valid_lines)
                 i += 1  # Skip the subroutine name token after processing
 
             i += 1  # Increment index after each token is processed
 
-        # Start compiling the valid lines using CompilationEngine
-        cp.startCompiling(output_path=output_path, values=valid_lines, filename=filename)
-    
     except FileNotFoundError as fnf_error:
         logging.error(f"File not found: {fnf_error}")
     except IOError as io_error:

@@ -4,6 +4,8 @@ import LexicalAnalysis.JackGrammar as JackGrammar
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(levelname)s -- %(message)s -- (%(asctime)s)')
+# logging.getLogger(__name__).setLevel(logging.CRITICAL)
+
 # logging.basicConfig(level=logging.WARNING) to deactivate 
 
 analysetable = JackGrammar.analyser_table
