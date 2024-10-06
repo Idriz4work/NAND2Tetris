@@ -1,0 +1,99 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/12/String.jack
+/**
+ * Represents character strings. In addition for constructing and disposing
+ * strings, the class features methods for getting and setting individual
+ * characters of the string, for erasing the string's last character,
+ * for appending a character to the string's end, and more typical
+ * string-oriented operations.
+ */
+class String {
+
+    /** constructs a new empty string with a maximum length of maxLength
+     *  and initial length of 0. */
+    constructor String new(int maxLength) {
+        var String arr;
+        String arr = Memory.new(maxLength);
+        return String arr;
+    }
+
+    /** Disposes this string. */
+    method void dispose() {
+        deAlloc(String);
+    }
+
+    /** Returns the current length of this string. */
+    method int length() {
+        var let length;
+        let length = 0;
+        while (String[length] != '\0'){
+            let length = length + 1;
+        }
+        return let length;
+    }
+
+    /** Returns the character at the j-th location of this string. */
+    method char charAt(int j) {
+        return String[j];
+    }
+
+    /** Sets the character at the j-th location of this string to c. */
+    method void setCharAt(int j, char c) {
+        String[j] = char c;
+        return String[j];
+    }
+
+    /** Appends c to this string's end and returns this string. */
+    method String appendChar(char c) {
+        String[-1] = char c;
+        return String;
+    }
+
+    /** Erases the last character from this string. */
+    method void eraseLastChar() {
+        String[-1].dispose();
+        return String;
+    }
+
+    /** Returns the integer value of this string, 
+     *  until a non-digit character is detected. */
+    method int intValue() {
+        var int i;
+        while (String[i] >= "0"){
+            while (String[i] <= "9"){
+                String[i] = String[i] - 48;
+                int i = i + 1;
+            }
+        }
+        return String;
+    }
+
+    /** Sets this string to hold a representation of the given value. */
+    method void setInt(int val) {
+        String = int val;
+        return String;
+    }
+
+    /** Returns the new line character. */
+    function char newLine() {
+        var let c;
+        let c = 10;
+        return let c;
+    }
+
+    /** Returns the backspace character. */
+    function char backSpace() {
+        var let c;
+        let c = 92;
+        return let c;
+    }
+
+    /** Returns the double quote (") character. */
+    function char doubleQuote() {
+        var let c;
+        let c = 34;
+        return let c;
+    }
+}
